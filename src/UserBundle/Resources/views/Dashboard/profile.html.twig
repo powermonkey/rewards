@@ -277,7 +277,7 @@
                 <form action="{{ path('send_points') }}" method="post">
                   <div class="form-group">
                     <div class="input-group">
-                        <select class="form-control">
+                        <select name="points" class="form-control">
                             <option value="10">Give 10 points</option>
                             <option value="20" selected="selected">Give 20 points</option>
                             <option value="30">Give 30 points</option>
@@ -290,11 +290,11 @@
                   <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">To:</div>
-                        <input type="text" class="form-control" id="person" placeholder="Name or email address">
+                        <input name="user" type="text" class="form-control" id="person" placeholder="Name or email address">
                     </div>
                   </div>
                   <div class="form-group">
-                     <textarea class="form-control" rows="3" placeholder="For doing a great job"></textarea>
+                     <textarea name="message" class="form-control" rows="3" placeholder="For doing a great job"></textarea>
                   </div>
                   <button type="submit" class="btn learn-more-btn">Send Love</button>
                 </form>

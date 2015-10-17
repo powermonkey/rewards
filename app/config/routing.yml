@@ -1,3 +1,7 @@
+rewards_manager:
+    resource: "@RewardsManagerBundle/Resources/config/routing.yml"
+    prefix:   /rewards
+
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation
