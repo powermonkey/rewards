@@ -25,7 +25,7 @@ class LoadPointsData extends AbstractFixture implements FixtureInterface, Ordere
     public function load(ObjectManager $manager)
     {
         $p = new Points();
-		$p->setPoints(0);
+		$p->setPoints(200);
 		$user = $this->getUser();
 		$p->setUser($user[0]);
 		
@@ -33,7 +33,7 @@ class LoadPointsData extends AbstractFixture implements FixtureInterface, Ordere
         $manager->flush();
 		
 		$p = new Points();
-		$p->setPoints(0);
+		$p->setPoints(200);
 		$user = $this->getUser();
 		$p->setUser($user[1]);
 		

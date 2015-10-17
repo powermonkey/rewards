@@ -17,17 +17,31 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
+		
         return $this->render('UserBundle:Dashboard:profile.html.twig');
     }
 	
 	public function sendpointsAction(Request $request)
 	{
 		$post = $request->request->all();
-		var_dump($post);exit;
-		$user = $this->searchUserByEmail($post['email']);
-		$u = new User();
-		$u->setPointsGiven($post['points']);
+		$searchUser = $this->searchUserByEmail($post['email']);
+		$user = new User();
+		$pointsGiven = new PointsGiven();
+		$pointsLog = new PointsLog();
+		$pointsReceived = new PointsReceived();
 		
+		$pointsGiven->setUserIdTo($searchUser->getId());
+		$pointsGiven->setPoints($post['points']);
+		$pointsGiven->setMessage($post['message']);
+		$user->addPointsGiven($pointsGiven);
+		
+		$pointsReceived->setUserIdFrom($user->getId());
+		$pointsReceived->setPoints($post['points']);
+		$pointsReceived->setMessage($post['message']);
+		$searchUser->addPointsReceived($pointsReceived);
+		
+		return $this->render('UserBundle:Dashboard:profile.html.twig');
+		// $pointsLog->
 	}
 	
 	public function searchUserByEmail($email)

@@ -2,12 +2,14 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use UserBundle\Entity\TimeStampTable;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class User extends TimeStampTable
+class User extends TimeStampTable implements UserInterface
 {
 	const   ROLE_USER = 'ROLE_USER'; //default user role
 	const	STATUS_ACTIVE = 1; //default status
@@ -705,5 +707,20 @@ class User extends TimeStampTable
     public function getReports()
     {
         return $this->reports;
+    }
+	
+	public function getRoles()
+    {
+		return $this->role;
+    }
+
+    public function eraseCredentials()
+    {
+
+    }
+
+    public function equals(Users $user)
+    {
+        return $user->getUsername() == $this->getUsername();
     }
 }

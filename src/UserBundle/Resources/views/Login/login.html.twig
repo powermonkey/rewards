@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% stylesheets '@UserBundle/Resources/public/css/login.css'
+			'@UserBundle/Resources/public/css/bootstrap.min.css'
+		filter='cssrewrite' %}
+			<link rel="stylesheet" href="{{ asset_url }}" />
+		{% endstylesheets %}
+	</head>
+	<body>
+		{% block content %}
+		<div class="admin-login-form-wrap">
+			<div class="admin-login-form">
+				
+					<div>
+						{% if error %}
+							{{ error.message }}
+						{% endif %}
+						{% block flash %}
+							{% if app.session.flashbag.has('admin_only') %}
+								{% for flashMessage in app.session.flashbag.get('admin_only') %}
+									<div>
+										{{ flashMessage }}
+									</div>
+								{% endfor %}
+							{% endif %}
+						{% endblock %}
+					</div>
+				
+
+				<form action="{{ path('login_check') }}" method="post" class="admin-login">
+					<input type="text" id="username" class="form-control" name="_username" value="" placeholder="Username"/>
+					<input type="password" id="password" class="form-control" name="_password" placeholder="Password" />
+					<label class="checkbox">
+						<input type="checkbox" name="_remember_me"> Remember me
+					</label>
+					<button class="btn btn-lg btn-primary btn-block admin-login-sumbit-button" type="submit">Login</button>
+				</form>
+			</div>
+		</div>
+	{% endblock %}
+	</body>
+</html>
+

@@ -29,10 +29,10 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, OrderedF
         $user = new User();
 		$project = $this->getProjects();
 		$user->setUsername('rodi');
+		$salt = $user->getSalt();
 		$user->setPassword('1234');
         $user->setFirstname('Rodolfo');
         $user->setLastname('Cam');
-        $user->setSalt('test');
         $user->setEmail('r.cam@arcanys.com');
         $user->setStatus(1);
         $user->addRole('ROLE_USER');
@@ -44,6 +44,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, OrderedF
 		$user = new User();
 		$project = $this->getProjects();
 		$user->setUsername('donnah');
+		$salt = $user->getSalt();
 		$user->setPassword('1234');
         $user->setFirstname('Donnah');
         $user->setLastname('Chan');
