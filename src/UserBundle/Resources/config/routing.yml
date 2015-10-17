@@ -1,0 +1,13 @@
+login:
+    pattern:   /login
+    defaults:  { _controller: UserBundle:Login:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout
+
+send_points:
+    pattern:   /send_points
+    defaults:  { _controller: UserBundle:Dashboard:sendpoints }
