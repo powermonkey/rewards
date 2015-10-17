@@ -1,30 +1,58 @@
 rewards:
     path: /rewards
+<<<<<<< HEAD
     defaults: { _controller: "RewardsManagerBundle:Rewards:index" }
+=======
+    defaults: { _controller: "RewardsManagerBundle:Reward:index" }
+>>>>>>> a8df9e9d20a5ab274fea8bc31707d5c4fdc8d764
 
 rewards_show:
     path: /rewards/show/{id}
+<<<<<<< HEAD
     defaults: { _controller: "RewardsManagerBundle:Rewards:show" }
+=======
+    defaults: { _controller: "RewardsManagerBundle:Reward:show" }
+>>>>>>> a8df9e9d20a5ab274fea8bc31707d5c4fdc8d764
 
 rewards_new:
     path: /rewards/new
+<<<<<<< HEAD
     defaults: { _controller: "RewardsManagerBundle:Rewards:new" }
+=======
+    defaults: { _controller: "RewardsManagerBundle:Reward:new" }
+>>>>>>> a8df9e9d20a5ab274fea8bc31707d5c4fdc8d764
 
 rewards_create:
     path: /rewards/create
+<<<<<<< HEAD
     defaults: { _controller: "RewardsManagerBundle:Rewards:create" }
+=======
+    defaults: { _controller: "RewardsManagerBundle:Reward:create" }
+>>>>>>> a8df9e9d20a5ab274fea8bc31707d5c4fdc8d764
     requirements: { _method: post }
 
 rewards_edit:
     path: /rewards/edit/{id}
+<<<<<<< HEAD
     defaults: { _controller: "RewardsManagerBundle:Rewards:edit" }
+=======
+    defaults: { _controller: "RewardsManagerBundle:Reward:edit" }
+>>>>>>> a8df9e9d20a5ab274fea8bc31707d5c4fdc8d764
 
 rewards_update:
     path: /rewards/update/{id}
+<<<<<<< HEAD
     defaults: { _controller: "RewardsManagerBundle:Rewards:update" }
+=======
+    defaults: { _controller: "RewardsManagerBundle:Reward:update" }
+>>>>>>> a8df9e9d20a5ab274fea8bc31707d5c4fdc8d764
     requirements: { _method: post|put }
 
 rewards_delete:
     path: /rewards/delete/{id}
+<<<<<<< HEAD
     defaults: { _controller: "RewardsManagerBundle:Rewards:delete" }
+=======
+    defaults: { _controller: "RewardsManagerBundle:Reward:delete" }
+>>>>>>> a8df9e9d20a5ab274fea8bc31707d5c4fdc8d764
     requirements: { _method: post|delete }

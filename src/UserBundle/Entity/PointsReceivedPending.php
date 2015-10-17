@@ -30,6 +30,11 @@ class PointsReceivedPending extends TimeStampTable
      * @ORM\Column(type="boolean")
      */
     protected $status;
+	
+	/**
+     * @ORM\Column(type="text")
+     */
+    protected $message;
 
     /**
      * Get id
@@ -111,5 +116,29 @@ class PointsReceivedPending extends TimeStampTable
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     *
+     * @return PointsReceivedPending
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
     }
 }
