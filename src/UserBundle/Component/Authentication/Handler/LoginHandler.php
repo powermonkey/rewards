@@ -28,7 +28,7 @@ class LoginHandler implements AuthenticationSuccessHandlerInterface
 		if ($this->security->isGranted('ROLE_USER')){
 			$response = new RedirectResponse($this->router->generate('dashboard'));			
 		}else if($this->security->isGranted('ROLE_SCRUM')){
-			$response = new RedirectResponse($this->router->generate('scrumdashboard'));
+			$response = new RedirectResponse($this->router->generate('manager'));
 		}
 			
 		return $response;
