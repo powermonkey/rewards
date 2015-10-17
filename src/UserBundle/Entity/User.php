@@ -67,12 +67,6 @@ class User extends TimeStampTable
     protected $date_hired;
 	
 	/**
-     * @ORM\OneToOne(targetEntity="Points")
-     * @ORM\JoinColumn(name="user_points", referencedColumnName="id")
-     **/
-	protected $points;
-	
-	/**
      * @ORM\ManyToMany(targetEntity="Project")
      * @ORM\JoinTable(name="user_projects",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
@@ -558,30 +552,6 @@ class User extends TimeStampTable
     public function getUserReward()
     {
         return $this->user_reward;
-    }
-
-    /**
-     * Set points
-     *
-     * @param \UserBundle\Entity\Points $points
-     *
-     * @return User
-     */
-    public function setPoints(\UserBundle\Entity\Points $points = null)
-    {
-        $this->points = $points;
-
-        return $this;
-    }
-
-    /**
-     * Get points
-     *
-     * @return \UserBundle\Entity\Points
-     */
-    public function getPoints()
-    {
-        return $this->points;
     }
 	
 	/**

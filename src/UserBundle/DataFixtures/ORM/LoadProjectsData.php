@@ -23,6 +23,6 @@ class LoadProjectsData extends AbstractFixture implements FixtureInterface, Orde
 	
 	public function getOrder()
     {
-        return 2;
+        return 1;
 	}
 }
