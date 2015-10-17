@@ -1,6 +1,6 @@
 rewards_manager:
     resource: "@RewardsManagerBundle/Resources/config/routing.yml"
-    prefix:   /rewards
+    prefix:   /
 
 user:
     resource: "@UserBundle/Controller/"
