@@ -1,30 +1,30 @@
 reward:
     path: /rewards
-    default: { _controller: "RewardsManagerBundle:Reward:index" }
+    defaults: { _controller: "RewardsManagerBundle:Reward:index" }
 
 reward_show:
     path: /rewards/show/{id}
-    default: { _controller: "RewardsManagerBundle:Reward:show" }
+    defaults: { _controller: "RewardsManagerBundle:Reward:show" }
 
 reward_new:
     path: /rewards/new
-    default: { _controller: "RewardsManagerBundle:Reward:new" }
+    defaults: { _controller: "RewardsManagerBundle:Reward:new" }
 
 reward_create:
     path: /rewards/create
-    default: { _controller: "RewardsManagerBundle:Reward:create" }
+    defaults: { _controller: "RewardsManagerBundle:Reward:create" }
     requirements: { _method: post }
 
 reward_edit:
     path: /rewards/edit/{id}
-    default: { _controller: "RewardsManagerBundle:Reward:edit" }
+    defaults: { _controller: "RewardsManagerBundle:Reward:edit" }
 
 reward_update:
     path: /rewards/update/{id}
-    default: { _controller: "RewardsManagerBundle:Reward:update" }
+    defaults: { _controller: "RewardsManagerBundle:Reward:update" }
     requirements: { _method: post|put }
 
 reward_delete:
     path: /rewards/delete/{id}
-    default: { _controller: "RewardsManagerBundle:Reward:delete" }
+    defaults: { _controller: "RewardsManagerBundle:Reward:delete" }
     requirements: { _method: post|delete }

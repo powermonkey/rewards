@@ -25,6 +25,11 @@ class PointsGiven extends TimeStampTable
      * @ORM\Column(type="integer")
      */
     protected $user_id_to;
+	
+	/**
+     * @ORM\Column(type="text")
+     */
+    protected $message;
 
     /**
      * Get id
@@ -82,5 +87,29 @@ class PointsGiven extends TimeStampTable
     public function getUserIdTo()
     {
         return $this->user_id_to;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     *
+     * @return PointsGiven
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
     }
 }

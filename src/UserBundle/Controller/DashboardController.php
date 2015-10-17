@@ -16,6 +16,6 @@ class DashboardController extends Controller
 	public function sendpointsAction(Request $request)
 	{
 		$post = $request->request->all();
-		var_dump($post);exit;
+		
 	}
 }

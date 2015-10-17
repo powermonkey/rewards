@@ -22,6 +22,12 @@ class Achievement extends TimeStampTable
     protected $points;
 	
 	/**
+     * @ORM\OneToOne(targetEntity="Achievement")
+     * @ORM\JoinColumn(name="achievement_id", referencedColumnName="id")
+     **/
+    protected $achievement_id;
+	
+	/**
      * @ORM\Column(type="string", length=50)
      */
     protected $achievement_name;
@@ -82,5 +88,29 @@ class Achievement extends TimeStampTable
     public function getAchievementName()
     {
         return $this->achievement_name;
+    }
+
+    /**
+     * Set achievementId
+     *
+     * @param \UserBundle\Entity\Achievement $achievementId
+     *
+     * @return Achievement
+     */
+    public function setAchievementId(\UserBundle\Entity\Achievement $achievementId = null)
+    {
+        $this->achievement_id = $achievementId;
+
+        return $this;
+    }
+
+    /**
+     * Get achievementId
+     *
+     * @return \UserBundle\Entity\Achievement
+     */
+    public function getAchievementId()
+    {
+        return $this->achievement_id;
     }
 }

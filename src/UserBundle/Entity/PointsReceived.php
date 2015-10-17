@@ -25,6 +25,11 @@ class PointsReceived extends TimeStampTable
      * @ORM\Column(type="integer")
      */
     protected $user_id_from;
+	
+	/**
+     * @ORM\Column(type="text")
+     */
+    protected $message;
 
     /**
      * Get id
@@ -82,5 +87,29 @@ class PointsReceived extends TimeStampTable
     public function getUserIdFrom()
     {
         return $this->user_id_from;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     *
+     * @return PointsReceived
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
     }
 }

@@ -30,6 +30,11 @@ class PointsReceivedAchievement extends TimeStampTable
      * @ORM\Column(type="integer")
      */
     protected $achievement_id;
+	
+	/**
+     * @ORM\Column(type="text")
+     */
+    protected $message;
 
     /**
      * Get id
@@ -111,5 +116,29 @@ class PointsReceivedAchievement extends TimeStampTable
     public function getAchievementId()
     {
         return $this->achievement_id;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     *
+     * @return PointsReceivedAchievement
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
     }
 }

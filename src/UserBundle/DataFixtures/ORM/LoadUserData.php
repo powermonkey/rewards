@@ -37,11 +37,26 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, OrderedF
         $user->setStatus(1);
         $user->addRole('ROLE_USER');
         $user->setDateHired(new \DateTime(date('d-M-Y H:i:s')));
-       
+        $user->addProject($project[0]);
+		$manager->persist($user);
+        $manager->flush();
+		
+		$user = new User();
+		$project = $this->getProjects();
+		$user->setUsername('donnah');
+		$user->setPassword('1234');
+        $user->setFirstname('Donnah');
+        $user->setLastname('Chan');
+        $user->setSalt('test');
+        $user->setEmail('d.chan@arcanys.com');
+        $user->setStatus(1);
+        $user->addRole('ROLE_USER');
+        $user->setDateHired(new \DateTime(date('d-M-Y H:i:s')));
         $user->addProject($project[0]);
 		
         $manager->persist($user);
         $manager->flush();
+        $manager->clear();
     }
 	
 	protected function getProjects()
