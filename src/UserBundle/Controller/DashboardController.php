@@ -17,14 +17,20 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
-		
         return $this->render('UserBundle:Dashboard:profile.html.twig');
+    }
+	
+	public function scrumdashboardAction()
+    {
+		
+        return $this->render('UserBundle:Dashboard:scrumdashboard.html.twig');
     }
 	
 	public function sendpointsAction(Request $request)
 	{
 		$post = $request->request->all();
-		$searchUser = $this->searchUserByEmail($post['email']);
+		$em = $this->getDoctrine()->getManager();
+		$searchUser = $this->searchUserByEmail($post['user']);
 		$user = new User();
 		$pointsGiven = new PointsGiven();
 		$pointsLog = new PointsLog();
@@ -34,11 +40,18 @@ class DashboardController extends Controller
 		$pointsGiven->setPoints($post['points']);
 		$pointsGiven->setMessage($post['message']);
 		$user->addPointsGiven($pointsGiven);
+		$em->persist($pointsGiven);
+		$em->flush();
 		
-		$pointsReceived->setUserIdFrom($user->getId());
+		$currentUser = $this->get('security.token_storage')->getToken()->getUser();
+		$pointsReceived->setUserIdFrom($currentUser->getId());
 		$pointsReceived->setPoints($post['points']);
 		$pointsReceived->setMessage($post['message']);
 		$searchUser->addPointsReceived($pointsReceived);
+		$em->persist($pointsReceived);
+		$em->flush();
+		
+		//to do: decrease points of user that sent points
 		
 		return $this->render('UserBundle:Dashboard:profile.html.twig');
 		// $pointsLog->
@@ -46,8 +59,10 @@ class DashboardController extends Controller
 	
 	public function searchUserByEmail($email)
 	{
-		$u = new User();
-		$user = $u->findOneByEmail($email);
+		$repository = $this->getDoctrine()->getRepository('UserBundle:User');
+		$user = $repository->findOneBy(
+			array('email' => $email)
+		);
 		
 		return $user;
 	}
