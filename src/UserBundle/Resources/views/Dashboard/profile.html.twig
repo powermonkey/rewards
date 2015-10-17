@@ -55,9 +55,8 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Edit Profile</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="{{ path('logout') }}">Logout</a></li>
+                        <li><a href="{{ path('dashboard') }}"><i class="fa fa-desktop"></i> Dashboard</a></li>
+                        <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
                       </ul>
                     </li>
                 </ul>
@@ -77,10 +76,10 @@
               </div>
               <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                  <button type="button" class="btn learn-more-btn" data-toggle="modal" data-target="#myModal">
+                  <button type="button" class="btn give-btn" data-toggle="modal" data-target="#myModal">
                       <i class="fa fa-heart"></i> Give
                   </button>
-                  <a href="/rewards" class="btn learn-more-btn"><i class="fa fa-gift"></i> Pick a Reward</a>
+                  <a href="{{ path('rewards') }}" class="btn learn-more-btn"><i class="fa fa-gift"></i> Pick a Reward</a>
                 </div>
               </div>
             </div>
@@ -109,6 +108,7 @@
                                     <h3>Daily report</h3>
                     			    <p>Successively sending the daily report for this week</p>
                                 </div>
+                                <span class="badge badge-info">10 PTS</span>
                         	</li>
                             <li class="list-group-item clearfix">
                         		<a href="#" class="list-group-thumb pull-left">
@@ -121,6 +121,7 @@
                                     <h3>Weekly report</h3>
                     			    <p>Successively sending the weekly report for a month</p>
                                 </div>
+                                <span class="badge badge-info">5 PTS</span>
                         	</li>
                             <li class="list-group-item clearfix">
                         		<a href="#" class="list-group-thumb pull-left">
@@ -133,6 +134,7 @@
                                     <h3>Daily report</h3>
                     			    <p>Successively sending the daily report for this week</p>
                                 </div>
+                                <span class="badge badge-info">20 PTS</span>
                         	</li>
                         </ol>
                     </div>
@@ -187,7 +189,7 @@
                 <ol class="notification-list list-group">
                 	<li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -197,7 +199,7 @@
                 	</li>
                 	<li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -207,7 +209,7 @@
                 	</li>
                 	<li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -217,7 +219,7 @@
                 	</li>
                     <li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -227,7 +229,7 @@
                 	</li>
                     <li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -237,7 +239,7 @@
                 	</li>
                     <li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -297,7 +299,7 @@
                   <div class="form-group">
                      <textarea name="message" class="form-control" rows="3" placeholder="For doing a great job"></textarea>
                   </div>
-                  <button type="submit" class="btn learn-more-btn">Send Love</button>
+                  <button type="submit" class="btn give-btn">Send Points</button>
                 </form>
               </div>
             </div>
