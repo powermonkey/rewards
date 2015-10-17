@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arcanys iPoints</title>
+	{% stylesheets '@UserBundle/Resources/public/css/bootstrap.min.css'
+					'@UserBundle/Resources/public/css/flexslider.css'
+					'@UserBundle/Resources/public/css/styles.css'
+					'@UserBundle/Resources/public/css/queries.css'
+					'@UserBundle/Resources/public/css/animate.css'
+					'@UserBundle/Resources/public/css/font-awesome.min.css'
+	%}
+			<link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
+	{% javascripts '@UserBundle/Resources/public/js/*' %}
+		<script src="{{ asset_url }}"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/jquery.flexslider.js"></script>
+        <script src="js/modernizr.js"></script>
+	{% endjavascripts %}
+	
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+  </head>
+      <body id="top">
+        <!-- Fixed navbar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                  <img src="img/logo.png" class="img-responsive" alt="Arcanys Points" />
+              </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Edit Profile</a></li>
+                        <li><a href="#">Settings</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+        <header id="home">
+          <section class="hero" id="hero">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                  <div class="profile-pic animated fadeInDown">
+                    <img src="img/donnachan.jpg" alt="..." class="img-circle">
+                  </div>
+                  <p class="animated fadeInUp delay-05s">Donnah Marizh Chan // Web Designer // 200 PTS</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                  <button type="button" class="btn learn-more-btn" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-heart"></i> Give
+                  </button>
+                  <a href="#" class="btn learn-more-btn"><i class="fa fa-gift"></i> Pick a Reward</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </header>
+        <section class="notifications section-padding intro" id="notification">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-7">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#achievements" aria-controls="achievements" role="tab" data-toggle="tab">Achievements</a></li>
+                    <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">Activities</a></li>
+                    <li role="presentation"><a href="#pointaway" aria-controls="pointaway" role="tab" data-toggle="tab">Points Away</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="achievements">
+                        <ol class="achievement-list list-group">
+                        	<li class="list-group-item clearfix list-group-item-success">
+                        		<a href="#" class="list-group-thumb pull-left">
+                        			<span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-file-text fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        		</a>
+                                <div class="list-group-content pull-left">
+                                    <h3>Daily report</h3>
+                    			    <p>Successively sending the daily report for this week</p>
+                                </div>
+                        	</li>
+                            <li class="list-group-item clearfix">
+                        		<a href="#" class="list-group-thumb pull-left">
+                                    <span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-files-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        		</a>
+                                <div class="list-group-content pull-left">
+                                    <h3>Weekly report</h3>
+                    			    <p>Successively sending the weekly report for a month</p>
+                                </div>
+                        	</li>
+                            <li class="list-group-item clearfix">
+                        		<a href="#" class="list-group-thumb pull-left">
+                        			<span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-file-text fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        		</a>
+                                <div class="list-group-content pull-left">
+                                    <h3>Daily report</h3>
+                    			    <p>Successively sending the daily report for this week</p>
+                                </div>
+                        	</li>
+                        </ol>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="activities">
+                        <ol class="achievement-list list-group">
+                        	<li class="list-group-item clearfix">
+                        		<a href="#" class="list-group-thumb pull-left">
+                        			<img src="http://placehold.it/75x75" alt="thumbnail" />
+                        		</a>
+                                <div class="list-group-content pull-left">
+                                    <h3>Christmas Volunteers</h3>
+                    			    <p>For doing a great work on the project HWG</p>
+                                </div>
+                        	</li>
+                        </ol>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="pointaway">
+                        <ol class="achievement-list list-group">
+                        	<li class="list-group-item clearfix">
+                        		<a href="#" class="list-group-thumb pull-left">
+                        			<img src="http://placehold.it/120x120" alt="thumbnail" />
+                        		</a>
+                                <div class="list-group-content pull-left">
+                                    <h3>Free Movie Ticket</h3>
+                    			    <p>You are 50 points away to get the movie ticket</p>
+                                </div>
+                        	</li>
+                        	<li class="list-group-item clearfix">
+                        		<a href="#" class="list-group-thumb pull-left">
+                        			<img src="http://placehold.it/120x120" alt="thumbnail" />
+                        		</a>
+                                <div class="list-group-content pull-left">
+                                    <h3>1 Box of Handuraw Pizza</h3>
+                    			    <p>You are 20 points away to get a free pizza</p>
+                                </div>
+                        	</li>
+                            <li class="list-group-item clearfix">
+                        		<a href="#" class="list-group-thumb pull-left">
+                        			<img src="http://placehold.it/120x120" alt="thumbnail" />
+                        		</a>
+                                <div class="list-group-content pull-left">
+                                    <h3>Trip to Singapore</h3>
+                    			    <p>You are 1000 points away to a free plane ticket to Singapore</p>
+                                </div>
+                        	</li>
+                        </ol>
+                    </div>
+                </div>
+
+              </div>
+              <div class="col-md-5">
+                <ol class="notification-list list-group">
+                	<li class="list-group-item clearfix">
+                		<a href="#" class="list-group-thumb pull-left">
+                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                		</a>
+                        <div class="list-group-content pull-left">
+                            <em>You received a 20 point bonus from Paul</em>
+            			    <p>For doing a great work on the project HWG</p>
+                        </div>
+                        <span class="badge">56m ago</span>
+                	</li>
+                	<li class="list-group-item clearfix">
+                		<a href="#" class="list-group-thumb pull-left">
+                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                		</a>
+                        <div class="list-group-content pull-left">
+                            <em>You received a 20 point bonus from Paul</em>
+            			    <p>For doing a great work on the project HWG</p>
+                        </div>
+                        <span class="badge">2d ago</span>
+                	</li>
+                	<li class="list-group-item clearfix">
+                		<a href="#" class="list-group-thumb pull-left">
+                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                		</a>
+                        <div class="list-group-content pull-left">
+                            <em>You received a 20 point bonus from Paul</em>
+            			    <p>For doing a great work on the project HWG</p>
+                        </div>
+                        <span class="badge">1m ago</span>
+                	</li>
+                    <li class="list-group-item clearfix">
+                		<a href="#" class="list-group-thumb pull-left">
+                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                		</a>
+                        <div class="list-group-content pull-left">
+                            <em>You received a 20 point bonus from Paul</em>
+            			    <p>For doing a great work on the project HWG</p>
+                        </div>
+                        <span class="badge">1m ago</span>
+                	</li>
+                    <li class="list-group-item clearfix">
+                		<a href="#" class="list-group-thumb pull-left">
+                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                		</a>
+                        <div class="list-group-content pull-left">
+                            <em>You received a 20 point bonus from Paul</em>
+            			    <p>For doing a great work on the project HWG</p>
+                        </div>
+                        <span class="badge">1m ago</span>
+                	</li>
+                    <li class="list-group-item clearfix">
+                		<a href="#" class="list-group-thumb pull-left">
+                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                		</a>
+                        <div class="list-group-content pull-left">
+                            <em>You received a 20 point bonus from Paul</em>
+            			    <p>For doing a great work on the project HWG</p>
+                        </div>
+                        <span class="badge">1m ago</span>
+                	</li>
+                </ol>
+
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <!-- <ul class="legals">
+                  <li><a href="#">Terms &amp; Conditions</a></li>
+                  <li><a href="#">Legals</a></li>
+                </ul> -->
+              </div>
+              <div class="col-md-6 credit">
+                <p>Designed &amp; Developed by <a href="#">XLR8</a></p>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">GIVE LOVE</h4>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <div class="input-group">
+                        <select class="form-control">
+                            <option value="10">Give 10 points</option>
+                            <option value="20" selected="selected">Give 20 points</option>
+                            <option value="30">Give 30 points</option>
+                            <option value="40">Give 40 points</option>
+                            <option value="50">Give 50 points</option>
+                        </select>
+                        <div class="input-group-addon">of 200 points</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">To:</div>
+                        <input type="text" class="form-control" id="person" placeholder="Name or email address">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                     <textarea class="form-control" rows="3" placeholder="For doing a great job"></textarea>
+                  </div>
+                  <button type="submit" class="btn learn-more-btn">Send Love</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>

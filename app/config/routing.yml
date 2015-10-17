@@ -1,0 +1,12 @@
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /dashboard
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+dashboard:
+    path:      /dashboard
+    defaults:  { _controller: UserBundle:Dashboard:index }
