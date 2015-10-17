@@ -20,10 +20,10 @@ class DashboardController extends Controller
         return $this->render('UserBundle:Dashboard:profile.html.twig');
     }
 	
-	public function scrumdashboardAction()
+	public function managerAction()
     {
 		
-        return $this->render('UserBundle:Dashboard:scrumdashboard.html.twig');
+        return $this->render('UserBundle:Dashboard:manager.html.twig');
     }
 	
 	public function sendpointsAction(Request $request)
@@ -54,6 +54,9 @@ class DashboardController extends Controller
 		$em->flush();
 		
 		//to do: decrease points of user that sent points
+		$updatedCurrentUserPoints = $currentUserPoints - $post['points'];
+		$points->setUser($currentUser);
+		$points->setPoints($updatedCurrentUserPoints);
 		
 		return $this->render('UserBundle:Dashboard:profile.html.twig');
 		// $pointsLog->
