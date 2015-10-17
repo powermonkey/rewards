@@ -41,7 +41,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ UserBundle, RewardsManagerBundle ]
+    bundles:        [ UserBundle, RewardsManagerBundle, ActivitiesManagerBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

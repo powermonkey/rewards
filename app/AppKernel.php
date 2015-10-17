@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
             new Rewards\ManagerBundle\RewardsManagerBundle(),
+            new Activities\ManagerBundle\ActivitiesManagerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
