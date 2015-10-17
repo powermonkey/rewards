@@ -25,9 +25,10 @@ class LoginHandler implements AuthenticationSuccessHandlerInterface
 	public function onAuthenticationSuccess(Request $request, TokenInterface $token)
 	{
 		
-		if ($this->security->isGranted('ROLE_USER'))
-		{
+		if ($this->security->isGranted('ROLE_USER')){
 			$response = new RedirectResponse($this->router->generate('dashboard'));			
+		}else if($this->security->isGranted('ROLE_SCRUM')){
+			$response = new RedirectResponse($this->router->generate('scrumdashboard'));
 		}
 			
 		return $response;

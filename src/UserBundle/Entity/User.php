@@ -145,7 +145,6 @@ class User extends TimeStampTable implements UserInterface
      */
     public function __construct()
     {
-        $this->addRole(static::ROLE_USER); //add default user role
 		$this->addStatus(static::STATUS_ACTIVE); //add default status
 		$this->setSalt(rand());
     }

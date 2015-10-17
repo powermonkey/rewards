@@ -12,6 +12,10 @@ dashboard:
     path:      /dashboard
     defaults:  { _controller: UserBundle:Dashboard:index }
 
+scrumdashboard:
+    path:      /scrumdashboard
+    defaults:  { _controller: UserBundle:Dashboard:scrumdashboard }
+
 send_points:
     pattern:   /send_points
     defaults:  { _controller: UserBundle:Dashboard:sendpoints }
