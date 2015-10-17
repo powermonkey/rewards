@@ -8,6 +8,10 @@ login_check:
 logout:
     pattern:   /logout
 
+dashboard:
+    path:      /dashboard
+    defaults:  { _controller: UserBundle:Dashboard:index }
+
 send_points:
     pattern:   /send_points
     defaults:  { _controller: UserBundle:Dashboard:sendpoints }

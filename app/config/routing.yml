@@ -11,10 +11,6 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-dashboard:
-    path:      /dashboard
-    defaults:  { _controller: UserBundle:Dashboard:index }
-
 dashboard_route:
     resource: "@UserBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,0 +1,61 @@
+.admin-login-form-wrap{
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+	font-family: 'Source Sans Pro', sans-serif;
+	margin-top: 100px;
+}
+
+.admin-login{
+	max-width: 330px;
+	margin-bottom: 10px;
+}
+
+.admin-login .form-control{
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.admin-login .form-control:focus {
+  z-index: 2;
+}
+
+.admin-login input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.admin-login input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.admin-login .checkbox{
+	font-weight: normal;
+	padding-left: 20px
+}
+
+.dropdown-menu.dropdown-user{
+	width: 158px !important;
+	padding: 15px !important;
+}
+
+.logout{
+	display: block;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu:after{
+	content: none !important;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu{
+	border-top: 1px solid #ccc !important;
+}
+
