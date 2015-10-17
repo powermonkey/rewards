@@ -1,0 +1,4 @@
+services:
+#    rewards_manager.example:
+#        class: Rewards\ManagerBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
