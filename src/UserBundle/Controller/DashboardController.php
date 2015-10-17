@@ -32,10 +32,12 @@ class DashboardController extends Controller
 		$em = $this->getDoctrine()->getManager();
 		$searchUser = $this->searchUserByEmail($post['user']);
 		$user = new User();
+		$points = new Points();
 		$pointsGiven = new PointsGiven();
 		$pointsLog = new PointsLog();
 		$pointsReceived = new PointsReceived();
-		
+		$currentUser = $this->get('security.token_storage')->getToken()->getUser();
+		$currentUserPoints = $this->getUserPoints($currentUser->getId());
 		$pointsGiven->setUserIdTo($searchUser->getId());
 		$pointsGiven->setPoints($post['points']);
 		$pointsGiven->setMessage($post['message']);
@@ -43,7 +45,7 @@ class DashboardController extends Controller
 		$em->persist($pointsGiven);
 		$em->flush();
 		
-		$currentUser = $this->get('security.token_storage')->getToken()->getUser();
+		
 		$pointsReceived->setUserIdFrom($currentUser->getId());
 		$pointsReceived->setPoints($post['points']);
 		$pointsReceived->setMessage($post['message']);
@@ -65,5 +67,15 @@ class DashboardController extends Controller
 		);
 		
 		return $user;
+	}
+	
+	public function getUserPoints($currentUser)
+	{
+		$repository = $this->getDoctrine()->getRepository('UserBundle:User');
+		$points = $repository->findOneBy(
+			array('id' => $currentUser)
+		);
+		
+		return $points;
 	}
 }
