@@ -37,40 +37,42 @@ class DashboardController extends Controller
 	{
 		$post = $request->request->all();
 		$em = $this->getDoctrine()->getManager();
+		
 		$searchUser = $this->searchUserByEmail($post['user']);
-		$user = new User();
-		$points = new Points();
 		$pointsGiven = new PointsGiven();
 		$pointsLog = new PointsLog();
 		$pointsReceived = new PointsReceived();
 		$currentUser = $this->get('security.token_storage')->getToken()->getUser();
+		$pointsSender = $em->getRepository('UserBundle:Points')->findOneBy(array('user' => $currentUser));
+		$pointsRecipient = $em->getRepository('UserBundle:Points')->findOneBy(array('user' => $searchUser));
+		
 		$currentUserPoints = $this->getUserPoints($currentUser->getId());
+		$recipientUserPoints = $this->getUserPoints($searchUser->getId());
+		
 		$pointsGiven->setUserIdTo($searchUser->getId());
 		$pointsGiven->setPoints($post['points']);
 		$pointsGiven->setMessage($post['message']);
-		$user->addPointsGiven($pointsGiven);
 		$em->persist($pointsGiven);
+		$em->flush();
 		
 		$pointsReceived->setUserIdFrom($currentUser->getId());
 		$pointsReceived->setPoints($post['points']);
 		$pointsReceived->setMessage($post['message']);
 		$searchUser->addPointsReceived($pointsReceived);
 		$em->persist($pointsReceived);
+		$em->flush();
 		
-		//to do: decrease points of user that sent points
+		//to do: decrease points of user that sent points and vice versa
 		$updatedCurrentUserPoints = $currentUserPoints - $post['points'];
-		
-		$points->setPoints($updatedCurrentUserPoints);
+		$updatedRecipientUserPoints = $recipientUserPoints + $post['points'];
+		$pointsSender->setUser($currentUser);
+		$pointsSender->setPoints($updatedCurrentUserPoints);
+		$pointsRecipient->setUser($searchUser);
+		$pointsRecipient->setPoints($updatedRecipientUserPoints);
 		$em->flush();
 		
 		return $this->redirect($this->getRequest()->headers->get('referer'));
-		
-		// return $this->render('UserBundle:Dashboard:profile.html.twig', array(
-				// 'points' => $updatedCurrentUserPoints,
-				// 'firstname' => $currentUser->getFirstname(),
-				// 'lastname' => $currentUser->getLastname(),
-			// )
-		// );
+
 		// $pointsLog->
 	}
 	

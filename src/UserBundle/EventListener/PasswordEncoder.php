@@ -33,6 +33,7 @@ class PasswordEncoder implements ContainerAwareInterface
         $entityManager = $args->getEntityManager();
 		
         if ($entity instanceof User) {
+			var_dump($entity);exit;
             $this->encodePassword($entity, $args);
         }
 	}
