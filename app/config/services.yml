@@ -14,10 +14,10 @@ services:
         class: UserBundle\EventListener\PasswordEncoder
         tags:
             - { name: doctrine.event_listener, event: prePersist }
-            - { name: doctrine.event_listener, event: preUpdate }
+            # - { name: doctrine.event_listener, event: preUpdate }
         arguments:
             - ~
-            - UserBundle\Entity\Users
-            - 'UserBundle:Users'
+            - UserBundle\Entity\User
+            - 'UserBundle:User'
         calls:
             - [setContainer, ["@service_container"]]
