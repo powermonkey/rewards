@@ -17,12 +17,19 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('UserBundle:Dashboard:profile.html.twig');
+		$currentUser = $this->get('security.token_storage')->getToken()->getUser();
+		$currentUserPoints = $this->getUserPoints($currentUser->getId());
+		
+        return $this->render('UserBundle:Dashboard:profile.html.twig', array(
+				'points' => $currentUserPoints,
+				'firstname' => $currentUser->getFirstname(),
+				'lastname' => $currentUser->getLastname(),
+			)
+		);
     }
 	
 	public function managerAction()
     {
-		
         return $this->render('UserBundle:Dashboard:manager.html.twig');
     }
 	
@@ -43,22 +50,27 @@ class DashboardController extends Controller
 		$pointsGiven->setMessage($post['message']);
 		$user->addPointsGiven($pointsGiven);
 		$em->persist($pointsGiven);
-		$em->flush();
-		
 		
 		$pointsReceived->setUserIdFrom($currentUser->getId());
 		$pointsReceived->setPoints($post['points']);
 		$pointsReceived->setMessage($post['message']);
 		$searchUser->addPointsReceived($pointsReceived);
 		$em->persist($pointsReceived);
-		$em->flush();
 		
 		//to do: decrease points of user that sent points
 		$updatedCurrentUserPoints = $currentUserPoints - $post['points'];
-		$points->setUser($currentUser);
-		$points->setPoints($updatedCurrentUserPoints);
 		
-		return $this->render('UserBundle:Dashboard:profile.html.twig');
+		$points->setPoints($updatedCurrentUserPoints);
+		$em->flush();
+		
+		return $this->redirect($this->getRequest()->headers->get('referer'));
+		
+		// return $this->render('UserBundle:Dashboard:profile.html.twig', array(
+				// 'points' => $updatedCurrentUserPoints,
+				// 'firstname' => $currentUser->getFirstname(),
+				// 'lastname' => $currentUser->getLastname(),
+			// )
+		// );
 		// $pointsLog->
 	}
 	
@@ -74,11 +86,12 @@ class DashboardController extends Controller
 	
 	public function getUserPoints($currentUser)
 	{
-		$repository = $this->getDoctrine()->getRepository('UserBundle:User');
-		$points = $repository->findOneBy(
-			array('id' => $currentUser)
+		$repository = $this->getDoctrine()->getRepository('UserBundle:Points');
+		$user = $repository->findOneBy(
+			array('user' => $currentUser)
 		);
 		
-		return $points;
+		
+		return $user->getPoints();
 	}
 }
