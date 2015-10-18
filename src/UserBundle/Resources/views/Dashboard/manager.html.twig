@@ -47,7 +47,7 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="#">
-                  <img src="{{ asset('bundles/user/img/logo.png') }}" class="img-responsive" alt="Arcanys Points" />
+                  <img src="{{ asset('bundles/user/img/logo_red.png') }}" style="width:75px" class="img-responsive" alt="Arcanys Points" />
               </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
@@ -55,9 +55,9 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Edit Profile</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="{{ path('logout') }}">Logout</a></li>
+                        <li><a href="{{ path('dashboard') }}"><i class="fa fa-desktop"></i> Dashboard</a></li>
+                        <li><a href="#"><i class="fa fa-pencil"></i> Create Activities</a></li>
+                        <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
                       </ul>
                     </li>
                 </ul>
@@ -70,14 +70,14 @@
               <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
                   <div class="profile-pic animated fadeInDown">
-                    <img src="{{ asset('bundles/user/img/donnachan.jpg') }}" class="img-circle" alt="..." />
+                    <img src="{{ asset('bundles/user/img/breinn.jpg') }}" class="img-circle" alt="..." />
                   </div>
-                  <p class="animated fadeInUp delay-05s">Donnah Marizh Chan // Web Designer // 200 PTS scrum</p>
+                  <p class="animated fadeInUp delay-05s">Breinn Aguilar // Manager // 100 PTS</p>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                  <button type="button" class="btn learn-more-btn" data-toggle="modal" data-target="#myModal">
+                  <button type="button" class="btn give-btn" data-toggle="modal" data-target="#myModal">
                       <i class="fa fa-heart"></i> Give
                   </button>
                   <a href="/rewards" class="btn learn-more-btn"><i class="fa fa-gift"></i> Pick a Reward</a>
@@ -94,6 +94,7 @@
                     <li role="presentation" class="active"><a href="#achievements" aria-controls="achievements" role="tab" data-toggle="tab">Achievements</a></li>
                     <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">Activities</a></li>
                     <li role="presentation"><a href="#pointaway" aria-controls="pointaway" role="tab" data-toggle="tab">Points Away</a></li>
+                    <li role="presentation"><a href="#approval" aria-controls="approval" role="tab" data-toggle="tab">Approval <span class="badge">3</span></a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="achievements">
@@ -109,6 +110,7 @@
                                     <h3>Daily report</h3>
                     			    <p>Successively sending the daily report for this week</p>
                                 </div>
+                                <span class="badge badge-info">10 PTS</span>
                         	</li>
                             <li class="list-group-item clearfix">
                         		<a href="#" class="list-group-thumb pull-left">
@@ -121,6 +123,7 @@
                                     <h3>Weekly report</h3>
                     			    <p>Successively sending the weekly report for a month</p>
                                 </div>
+                                <span class="badge badge-info">5 PTS</span>
                         	</li>
                             <li class="list-group-item clearfix">
                         		<a href="#" class="list-group-thumb pull-left">
@@ -133,6 +136,7 @@
                                     <h3>Daily report</h3>
                     			    <p>Successively sending the daily report for this week</p>
                                 </div>
+                                <span class="badge badge-info">20 PTS</span>
                         	</li>
                         </ol>
                     </div>
@@ -148,6 +152,7 @@
                                 </div>
                         	</li>
                         </ol>
+                        <a href="{{ path('activities') }}" class="btn learn-more-btn pull-right"><i class="fa fa-rocket"></i> Join More Activities</a>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="pointaway">
                         <ol class="achievement-list list-group">
@@ -155,27 +160,121 @@
                         		<a href="#" class="list-group-thumb pull-left">
                         			<img src="http://placehold.it/120x120" alt="thumbnail" />
                         		</a>
-                                <div class="list-group-content pull-left">
+                                <div class="list-group-content">
                                     <h3>Free Movie Ticket</h3>
-                    			    <p>You are 50 points away to get the movie ticket</p>
+                    			    <p>You are 0 points away to get the movie ticket</p>
+                                    <div class="progress clearfix">
+                                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        <span class="sr-only">100% Complete</span>
+                                      </div>
+                                    </div>
                                 </div>
                         	</li>
                         	<li class="list-group-item clearfix">
                         		<a href="#" class="list-group-thumb pull-left">
                         			<img src="http://placehold.it/120x120" alt="thumbnail" />
                         		</a>
-                                <div class="list-group-content pull-left">
+                                <div class="list-group-content">
                                     <h3>1 Box of Handuraw Pizza</h3>
                     			    <p>You are 20 points away to get a free pizza</p>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                    <span class="sr-only">60% Complete (warning)</span>
+                                  </div>
                                 </div>
                         	</li>
                             <li class="list-group-item clearfix">
                         		<a href="#" class="list-group-thumb pull-left">
                         			<img src="http://placehold.it/120x120" alt="thumbnail" />
                         		</a>
-                                <div class="list-group-content pull-left">
+                                <div class="list-group-content">
                                     <h3>Trip to Singapore</h3>
                     			    <p>You are 1000 points away to a free plane ticket to Singapore</p>
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                        <span class="sr-only">20% Complete</span>
+                                      </div>
+                                    </div>
+                                </div>
+                        	</li>
+                        </ol>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="approval">
+                        <ol class="achievement-list list-group">
+                        	<li class="list-group-item clearfix">
+                        		<a href="#" class="list-group-thumb pull-left">
+                        			<span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-flag-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        		</a>
+                                <div class="list-group-content pull-left">
+                    			    <p>Donnah is giving a recognition to Mark for 10 PTS</p>
+                                </div>
+                                <div class="btn-group pull-right">
+                                    <a href="#">
+                                        <span class="fa-stack fa-action fa-success">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa-stack fa-action fa-success">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                        	</li>
+                            <li class="list-group-item clearfix">
+                        		<a href="#" class="list-group-thumb pull-left">
+                        			<span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-flag-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        		</a>
+                                <div class="list-group-content pull-left">
+                    			    <p>Donnah is giving a recognition to Mark for 10 PTS</p>
+                                </div>
+                                <div class="btn-group pull-right">
+                                    <a href="#">
+                                        <span class="fa-stack fa-action fa-success">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa-stack fa-action fa-success">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                        	</li>
+                            <li class="list-group-item clearfix">
+                        		<a href="#" class="list-group-thumb pull-left">
+                        			<span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-flag-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        		</a>
+                                <div class="list-group-content pull-left">
+                    			    <p>Donnah is giving a recognition to Mark for 10 PTS</p>
+                                </div>
+                                <div class="btn-group pull-right">
+                                    <a href="#">
+                                        <span class="fa-stack fa-action fa-success">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa-stack fa-action fa-success">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
                                 </div>
                         	</li>
                         </ol>
@@ -187,7 +286,7 @@
                 <ol class="notification-list list-group">
                 	<li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -197,7 +296,7 @@
                 	</li>
                 	<li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -207,7 +306,7 @@
                 	</li>
                 	<li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -217,7 +316,7 @@
                 	</li>
                     <li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -227,7 +326,7 @@
                 	</li>
                     <li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -237,7 +336,7 @@
                 	</li>
                     <li class="list-group-item clearfix">
                 		<a href="#" class="list-group-thumb pull-left">
-                			<img src="http://placehold.it/50x50" alt="thumbnail" />
+                			<img src="{{ asset('bundles/user/img/mangkanor.jpg') }}" alt="thumbnail" />
                 		</a>
                         <div class="list-group-content pull-left">
                             <em>You received a 20 point bonus from Paul</em>
@@ -297,7 +396,7 @@
                   <div class="form-group">
                      <textarea name="message" class="form-control" rows="3" placeholder="For doing a great job"></textarea>
                   </div>
-                  <button type="submit" class="btn learn-more-btn">Send Love</button>
+                  <button type="submit" class="btn give-btn">Send Points</button>
                 </form>
               </div>
             </div>
