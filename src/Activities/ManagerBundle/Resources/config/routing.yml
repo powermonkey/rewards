@@ -2,6 +2,6 @@ activities:
     path: /activities
     defaults: { _controller: "ActivitiesManagerBundle:Activities:index" }
 
-activities_show:
-    path: /activities/show/{id}
-    defaults: { _controller: "ActivitiesManagerBundle:Activities:show" }
+activities_new:
+    path: /activities/new
+    defaults: { _controller: "ActivitiesManagerBundle:Activities:new" }

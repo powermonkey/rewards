@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arcanys iPoints</title>
+	{% stylesheets  '@RewardsManagerBundle/Resources/public/css/bootstrap.min.css'
+					'@RewardsManagerBundle/Resources/public/css/flexslider.css'
+					'@RewardsManagerBundle/Resources/public/css/styles.css'
+					'@RewardsManagerBundle/Resources/public/css/queries.css'
+					'@RewardsManagerBundle/Resources/public/css/animate.css'
+					'@RewardsManagerBundle/Resources/public/css/font-awesome.min.css'
+	%}
+			<link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
+	{% javascripts '@RewardsManagerBundle/Resources/public/js/*' %}
+		<script src="{{ asset_url }}"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/jquery.flexslider.js"></script>
+        <script src="js/modernizr.js"></script>
+	{% endjavascripts %}
+
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+  </head>
+      <body id="top">
+        <!-- Fixed navbar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                  <img src="{{ asset('bundles/user/img/logo_red.png') }}" style="width:75px" class="img-responsive" alt="Arcanys Points" />
+              </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{ path('dashboard') }}"><i class="fa fa-desktop"></i> Dashboard</a></li>
+                        <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+        <header id="home">
+          <section class="hero" id="hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center text-adjust">
+                      <h1 class="animated fadeInDown">REDEEM <span>POINTS</span></h1>
+                      <p class="animated fadeInUp delay-05s">Select items below to redeem and have FUN!</p>
+                    </div>
+                </div>
+            </div>
+          </section>
+        </header>
+        <section class="notifications section-padding intro" id="notification">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 card-list">
+                   <div class="col-xs-18 col-sm-6 col-md-3">
+                      <div class="thumbnail">
+                        <img src="{{ asset('bundles/rewards/img/3d-movie_ticket-prices1.jpg') }}">
+                          <div class="caption">
+                            <h4>FREE MOVIE TICKET</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+                            <div class="text-center">
+                                <a href="" class="btn give-btn"><i class="fa fa-share"></i> Redeem</a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                      <div class="thumbnail">
+                        <img src="{{ asset('bundles/rewards/img/pizzabackground.jpg') }}">
+                          <div class="caption">
+                            <h4>1 BOX OF HANDURAW PIZZA</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+                            <div class="text-center">
+                                <a href="" class="btn give-btn"><i class="fa fa-share"></i> Redeem</a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                      <div class="thumbnail">
+                        <img src="{{ asset('bundles/rewards/img/dukespa.jpg') }}">
+                          <div class="caption">
+                            <h4>DUKE SPA MASSAGE</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+                            <div class="text-center">
+                                <a href="" class="btn give-btn"><i class="fa fa-share"></i> Redeem</a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                      <div class="thumbnail">
+                            <img src="{{ asset('bundles/rewards/img/crownregency.jpg') }}">
+                          <div class="caption">
+                            <h4>3D/2N STAY CROWN REGENCY</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+                            <div class="text-center">
+                                <a href="" class="btn give-btn"><i class="fa fa-share"></i> Redeem</a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                      <div class="thumbnail">
+                        <img src="{{ asset('bundles/rewards/img/boracay.jpg') }}">
+                          <div class="caption">
+                            <h4>BORACY TRIP</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+                            <div class="text-center">
+                                <a href="" class="btn give-btn"><i class="fa fa-share"></i> Redeem</a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                      <div class="thumbnail">
+                            <img src="{{ asset('bundles/rewards/img/singapore.jpg') }}">
+                          <div class="caption">
+                            <h4>SINGAPORE ESCAPADE5</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+                            <div class="text-center">
+                                <a href="" class="btn give-btn"><i class="fa fa-share"></i> Redeem</a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <!-- <ul class="legals">
+                  <li><a href="#">Terms &amp; Conditions</a></li>
+                  <li><a href="#">Legals</a></li>
+                </ul> -->
+              </div>
+              <div class="col-md-6 credit">
+                <p>Designed &amp; Developed by <a href="#">XLR8</a></p>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">GIVE LOVE</h4>
+              </div>
+              <div class="modal-body">
+                <form action="{{ path('send_points') }}" method="post">
+                  <div class="form-group">
+                    <div class="input-group">
+                        <select name="points" class="form-control">
+                            <option value="10">Give 10 points</option>
+                            <option value="20" selected="selected">Give 20 points</option>
+                            <option value="30">Give 30 points</option>
+                            <option value="40">Give 40 points</option>
+                            <option value="50">Give 50 points</option>
+                        </select>
+                        <div class="input-group-addon">of 200 points</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">To:</div>
+                        <input name="user" type="text" class="form-control" id="person" placeholder="Name or email address">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                     <textarea name="message" class="form-control" rows="3" placeholder="For doing a great job"></textarea>
+                  </div>
+                  <button type="submit" class="btn learn-more-btn">Send Love</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
