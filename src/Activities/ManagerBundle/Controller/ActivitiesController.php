@@ -10,8 +10,8 @@
          return $this->render('ActivitiesManagerBundle:Activities:index.html.twig');
      }
 
-     public function showAction($id) {
-         return $this->render('ActivitiesManagerBundle:Activities:show.html.twig');
+     public function newAction() {
+         return $this->render('ActivitiesManagerBundle:Activities:new.html.twig');
      }
 
  }
